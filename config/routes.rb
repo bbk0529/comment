@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :blogs
+  resources :tweets
   root 'post#index'
 
   get 'user/signup'
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
 
   post 'post/create_comment/:id' => 'post#create_comment' #variable routing
 
-
+  get 'user/note'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

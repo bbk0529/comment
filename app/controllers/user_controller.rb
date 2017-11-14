@@ -4,6 +4,7 @@ class UserController < ApplicationController
 
   def logout
       session.clear
+      flash[:notice] = 'Logged out successfully'
       redirect_to '/'
 
   end
@@ -24,7 +25,7 @@ class UserController < ApplicationController
 
 
   #1. DB에 유저가 없을때 params[:email]로 DB검색시 없을 때 )
-    # 너 회원 아니거나 이메일이 잘못 입력되었음 
+    # 너 회원 아니거나 이메일이 잘못 입력되었음
   #2. DB에 유저가 있는데,
     # - 패스워드가 다를 때 -> "패스워드가 틀렸어"
     # - 패스워드가 맞을 때 -> "로그인"
@@ -38,15 +39,18 @@ class UserController < ApplicationController
         session['id']=@user.id
         flash[:notice] = "#{@user.name} has been successfully logged in"
       else
-        flash[:notice] = 'Wrong password seemed to be given'
+        flash[:alert] = 'Wrong password seemed to be given'
       end
     else
-      flash[:notice] = 'There is no such name'
+      flash[:alert] = 'There is no such name'
     end
     redirect_to '/'
   end
 
 
   def show
+  end
+
+  def note
   end
 end
