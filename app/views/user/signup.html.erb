@@ -1,0 +1,21 @@
+<h1>User#signup</h1>
+<p>New user sign-up page</p>
+<!-- 
+<form action='/user/signup_process' method='post'>
+  Name <input type="text" name="name">
+  Email <input type="text" name="email">
+  Password <input type="password" name="password">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit">
+</form> -->
+
+
+<%= form_tag('/user/signup_process') do %>
+  <%= label_tag(:name, "Name : ") %>
+  <%= text_field_tag(:name) %>
+  <%= label_tag(:email, "Email : ") %>
+  <%= text_field_tag(:email) %>
+  <%= label_tag(:password, "Password : ") %>
+  <%= password_field_tag(:password) %>
+  <%= submit_tag("Sign up") %>
+<% end %>

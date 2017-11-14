@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Comment</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <a href="/"> Home </a>
+
+    <% if session['id'].nil? %>
+      <a href="/user/login"> Login </a>
+      <a href="/user/signup"> Sign-Up </a>
+    <% else %>
+      <a href="/user/logout">Logout</a>
+      <%=User.find_by(id: session['id']).email%>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <p> <%=flash[:notice]%> </p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

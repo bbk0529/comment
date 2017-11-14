@@ -1,0 +1,22 @@
+<h1>Post List</h1>
+
+
+<% @posts.each do |post| %>
+  <p>
+    <%=post.id%> 번째 글_
+    <%=post.title%>_
+    <a href="/post/show/<%=post.id%>">[보기] </a>
+</p>
+<% end %>
+
+
+<% @users.each do |user| %>
+  <p>
+    <%=user.name%>
+    <%=user.email%>
+      <%=user.password%>
+</p>
+<% end %>
+
+
+<a href="/post/new"> 게시글 작성 </a>

@@ -1,0 +1,23 @@
+<h1>Post#show</h1>
+<p>Find me in app/views/post/show.html.erb</p>
+
+제목 : <%=@post.title%>
+내용 : <%=@post.content%>
+
+<!-- <form action="/post/create_comment/<%=@post.id%>" method="post">
+내용 <input type="text" name="content">
+<input type='submit'>
+<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+</form> -->
+
+<%= form_tag("/post/create_comment/#{@post.id}") do %>
+  <%= label_tag(:content, "내용 :") %>
+  <%= text_field_tag(:content) %>
+  <%= submit_tag("Comment") %>
+<% end %>
+
+<hr/>
+
+<% @post.replies.each do |c| %>
+  <p> <%=c.content%> </p>
+<%end%>

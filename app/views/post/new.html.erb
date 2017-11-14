@@ -1,0 +1,20 @@
+<h1>게시글 작성 </h1>
+<p>Find me in app/views/post/new.html.erb</p>
+<!--
+<form action="/post/create" method="post">
+    제목 : <input type="text" name="title">
+    내용 : <input type="text" name="content">
+    <input type="submit" value="글쓰기">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+</form> -->
+
+<%= form_tag(controller: "post", action: "create", method: "post") do %>
+  <%= label_tag(:title, "제목 : ") %>
+  <%= text_field_tag(:title) %>
+  <br/>
+  <%= label_tag(:content, "내용 : ") %>
+  <%= text_field_tag(:content) %>
+  <br/>
+  <%= submit_tag("글쓰기") %>
+
+<% end %>
