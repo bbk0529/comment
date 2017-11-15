@@ -32,4 +32,23 @@ class PostController < ApplicationController
     )
     redirect_to "/post/show/#{params['id']}"
   end
+
+  def edit
+    @post=Post.find(params[:id])
+    
+  end
+
+  def modify
+    post=Post.find(params[:id])
+    post.update(
+      title: params['title'],
+      content: params['content']
+    )
+    redirect_to "/post/show/#{params[:id]}"
+  end
+
+  def destroy
+    Post.find(params[:id]).destroy
+    redirect_to '/'
+  end
 end

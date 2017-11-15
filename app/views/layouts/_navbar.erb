@@ -9,12 +9,14 @@
     <a class="nav-link" href="/user/signup">Sign up</a>
   </li>
   <li class="nav-item">
-    <% if session['id'].nil? %>
+    <% if session['id'].nil? %> <!-- logout 상태일때 -->
       <a class="nav-link" href="/user/login"> Login </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/user/signup"> Sign-Up </a>
-    <% else %>
+
+
+    <% else %> <!-- login 상태일때 -->
       <a class="nav-link" href="/user/logout">Logout</a>
     </li>
     <li class="nav-item">
@@ -22,6 +24,7 @@
         <span class="badge badge-info">email</span>
         <%=User.find_by(id: session['id']).email%>
       </a>
+      
     <% end %>
   </li>
 

@@ -1,24 +1,10 @@
-# README
+Post (Update, delete(destroy))
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+routes.rb
 
-Things you may want to cover:
+post#show# 시작한다.
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+get 'post/edit/1'
+get 'post/update/1'
+get 'post/destroy/1' => 지어짐
